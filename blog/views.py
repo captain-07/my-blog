@@ -22,3 +22,5 @@ class PostViewSet(viewsets.ModelViewSet):
 
     ordering_fields = ["created_at", "updated_at"]
     ordering = ["-created_at"]
+
+    lookup_field = "slug"
