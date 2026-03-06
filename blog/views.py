@@ -8,11 +8,17 @@ class PostViewSet(viewsets.ModelViewSet):
 
     queryset = Post.objects.filter(
         status=Post.Status.PUBLISHED
-    ).order_by("-created_at")
+    )
 
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [
+        filters.SearchFilter,
+        filters.OrderingFilter
+    ]
 
     search_fields = ["title", "content"]
+
+    ordering_fields = ["created_at", "updated_at"]
+    ordering = ["-created_at"]
