@@ -1,7 +1,7 @@
-from .models import Post
+from .models import Post, Comment
 from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .serializers import PostSerializer
+from .serializers import PostSerializer, CommentSerializer
 from .permissions import IsAdminOrReadOnly
 
 
@@ -25,3 +25,11 @@ class PostViewSet(viewsets.ModelViewSet):
     ordering = ["-created_at"]
 
     lookup_field = "slug"
+
+class CommentViewSet(viewsets.ModelViewSet):
+
+    queryset = Comment.objects.all().order_by("-created_at")
+
+    serializer_class = CommentSerializer
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
