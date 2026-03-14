@@ -12,6 +12,9 @@ db.sqlite3
 # django
 *.log
 
+# environment variables
+.env
+
 # vscode
 .vscode/
 

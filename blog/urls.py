@@ -1,11 +1,14 @@
 from django.urls import path
-from .views import PostViewSet, CommentViewSet
 from rest_framework.routers import DefaultRouter
 
+from .views import PostViewSet, CommentViewSet, RegisterView
 
 router = DefaultRouter()
-
 router.register("posts", PostViewSet)
 router.register("comments", CommentViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path("auth/register/", RegisterView.as_view(), name="register"),
+]
+
+urlpatterns += router.urls
