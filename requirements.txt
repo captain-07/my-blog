@@ -1,0 +1,7 @@
+Django>=6.0.2,<7.0
+djangorestframework>=3.14.0
+django-cors-headers>=4.0.0
+python-dotenv>=1.0.0
+cloudinary>=1.35.0
+django-cloudinary-storage>=0.4.0
+djangorestframework-simplejwt>=5.2.0

@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import PostViewSet, CommentViewSet, RegisterView
+from .views import PostViewSet, CommentViewSet, RegisterView, like_post, unlike_post
 
 router = DefaultRouter()
 router.register("posts", PostViewSet)
@@ -9,6 +9,8 @@ router.register("comments", CommentViewSet)
 
 urlpatterns = [
     path("auth/register/", RegisterView.as_view(), name="register"),
+    path("posts/<int:post_id>/like/", like_post),
+    path("posts/<int:post_id>/unlike/", unlike_post),
 ]
 
 urlpatterns += router.urls
