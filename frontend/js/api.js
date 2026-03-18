@@ -5,7 +5,7 @@
  */
 
 // API Configuration
-const API_BASE_URL = 'https://captain07.pythonanywhere.com/api';
+const API_BASE_URL = 'https://my-blog-evfv.onrender.com/api/';
 
 /**
  * Generic API request helper
