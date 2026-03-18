@@ -84,7 +84,7 @@ class PostAPITest(APITestCase):
             'status': 'published'
         }
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_create_post_admin(self):
         self.client.force_authenticate(user=self.admin_user)
