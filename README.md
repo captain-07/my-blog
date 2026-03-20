@@ -177,3 +177,13 @@ Access the admin panel at `http://localhost:8000/admin/`
 ## License
 
 This project is licensed under the MIT License.
+
+## Live Demo
+- 🌐 Frontend: https://deb-blogs.vercel.app
+- 📡 API docs: https://my-blog-evfv.onrender.com/api/docs/
+
+## Tech Stack
+- Backend: Django 6.0 + DRF, deployed on Render
+- Database: PostgreSQL (Supabase)
+- Frontend: Vanilla JS + Bootstrap, deployed on Vercel
+- Auth: JWT (SimpleJWT)

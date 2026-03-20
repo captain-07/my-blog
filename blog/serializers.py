@@ -1,3 +1,4 @@
+from django.db.models import IntegerField
 from rest_framework import serializers
 from .models import Post, Comment
 from django.contrib.auth.models import User
@@ -21,12 +22,9 @@ class UserSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 
     comments = CommentSerializer(many=True, read_only=True)
-    likes_count = serializers.SerializerMethodField()
+    likes_count = IntegerField(read_only=True)
     author = UserSerializer(read_only=True)
 
-    def get_likes_count(self, obj):
-        return obj.likes.count()
-        
     class Meta:
         model = Post
         fields = ["id", "title", "slug", "content", "featured_image", "status", 

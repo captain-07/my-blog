@@ -12,7 +12,8 @@ from django.contrib.auth.models import User
 class PostViewSet(viewsets.ModelViewSet):
 
     queryset = Post.objects.filter(status=Post.Status.PUBLISHED
-                ).select_related("author").prefetch_related("comments__user", "likes")
+                ).select_related("author").prefetch_related("comments__user"
+                ).annotate(likes_count=Count("likes"))
 
     serializer_class = PostSerializer
     permission_classes = [IsAdminOrReadOnly]
