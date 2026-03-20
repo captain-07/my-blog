@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -16,7 +16,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField()
-    featured_image = models.URLField(blank=True, default="")
+    featured_image = CloudinaryField("image", blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
 
     status = models.CharField(

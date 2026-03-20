@@ -25,7 +25,13 @@ class PostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
     likes_count = IntegerField(read_only=True)
     author = UserSerializer(read_only=True)
+    featured_image = serializers.SerializerMethodField()
 
+    def get_featured_image(self, obj):
+        if obj.featured_image:
+            return obj.featured_image.url
+        return ""
+    
     class Meta:
         model = Post
         fields = ["id", "title", "slug", "content", "featured_image", "status", 
