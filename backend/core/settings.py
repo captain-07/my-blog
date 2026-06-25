@@ -415,9 +415,9 @@ CORS_ALLOW_CREDENTIALS = True
 
 SPECTACULAR_SETTINGS = {
 
-    "TITLE": "Deb Builds API",
+    "TITLE": "Dev Blogs API",
 
-    "DESCRIPTION": "A RESTful blog API built with Django and Django REST Framework for Deb Builds",
+    "DESCRIPTION": "A RESTful blog API built with Django and Django REST Framework for Dev Blogs",
 
     "VERSION": "1.0.0",
 
